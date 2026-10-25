@@ -1,0 +1,10 @@
+{
+  "name": "Premium Fragrance MNR",
+  "short_name": "PF MNR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f2ed",
+  "theme_color": "#211b18",
+  "description": "Partnership business manager for Premium Fragrance MNR",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
