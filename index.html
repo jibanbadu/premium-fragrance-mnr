@@ -30,7 +30,7 @@ input,select{background:#111315;color:var(--ink);border:1px solid var(--line);bo
 </style>
 </head>
 <body>
-<header><div class="brand"><div class="mark">PF</div><div><h1>Premium Fragrance MNR</h1><p>Mahendranagar · Kanchanpur · Shared partner records</p></div></div></header>
+<header><div class="brand"><div class="mark">PF</div><div><h1>Premium Fragrance MNR</h1><p>Mahendranagar · Kanchanpur</p></div></div></header>
 <main>
 <section id="loginView" class="login">
 <h2>Sign in</h2><p class="muted">Jeewan Badu & Rijan Bhatt · Shared workspace</p>
@@ -39,71 +39,56 @@ input,select{background:#111315;color:var(--ink);border:1px solid var(--line);bo
 <div class="actions"><button class="btn primary" id="loginBtn">Sign in</button><button class="btn" id="signupBtn">Create account</button></div><div id="authMessage" class="msg"></div>
 </section>
 <section id="appView" class="hidden">
-<div class="toprow"><div><h2 id="pageTitle">Dashboard</h2><div class="muted">Changes are saved to the shared cloud database</div></div><div class="actions"><span id="signedIn" class="muted"></span><button class="btn" id="refreshBtn">↻ Refresh</button><button class="btn" id="logoutBtn">Sign out</button></div></div>
-<section id="dashboard" class="pane">
-<div class="stats"><div class="stat"><span>Total sales</span><strong id="totalSales">NPR 0</strong></div><div class="stat"><span>Profit after expenses</span><strong id="totalProfit">NPR 0</strong></div><div class="stat"><span>Units available</span><strong id="totalUnits">0</strong></div><div class="stat"><span>Pending amounts</span><strong id="pendingTotal">NPR 0</strong></div></div>
-<div class="sheet"><div class="sheethead"><h3>Quick actions</h3></div><div class="actions" style="padding:0 13px 10px"><button class="btn primary" onclick="showTab('customers')">＋ Customer row</button><button class="btn" onclick="showTab('stock')">＋ Stock row</button><button class="btn" onclick="showTab('expenses')">Expenses</button></div></div>
-<div class="summary"><h3>Partner investment · 50 / 50</h3><div class="summarygrid"><div>Jeewan Badu<strong id="jeewanTotal">NPR 0</strong></div><div>Rijan Bhatt<strong id="rijanTotal">NPR 0</strong></div></div></div>
-</section>
-<section id="customers" class="pane hidden">
-<div class="sheet"><div class="sheethead"><div><h3>Sheet1 · Customer Details</h3><div class="hint">Excel-style editable rows · shared by both partners</div></div><div class="actions"><button class="btn primary" id="addCustomer">＋ Add row</button><button class="btn" id="exportCustomers">Export CSV</button></div></div>
-<div class="sheetnote">Edit a row and tap Save. Both partners see saved changes after refresh. Customer records use the existing sales table.</div>
+<div class="toprow">
+  <div><h2 id="pageTitle">Customer Details · Sheet1</h2><div class="muted">Customer and stock records</div></div>
+  <div class="actions"><span id="signedIn" class="muted"></span><button class="btn" id="refreshBtn">↻ Refresh</button><button class="btn" id="logoutBtn">Sign out</button></div>
+</div>
+<div class="tabs">
+  <button class="tab active" data-tab="customers">Sheet1 · Customer Details</button>
+  <button class="tab" data-tab="stock">Sheet2 · Stock Details</button>
+</div>
+<section id="customers" class="pane">
+<div class="sheet"><div class="sheethead"><div><h3>Sheet1 · Customer Details</h3></div><div class="actions"><button class="btn primary" id="addCustomer">＋ Add row</button><button class="btn" id="exportCustomers">Export CSV</button></div></div>
 <div class="gridwrap"><table><thead><tr><th>S.N.</th><th>Customer name</th><th>Phone number</th><th>Purchase date</th><th>Perfume brand</th><th>Invested cost NPR</th><th>Sold price NPR</th><th>Profit NPR</th><th>Payment status</th><th>Notes</th><th>Actions</th></tr></thead><tbody id="customerRows"></tbody></table></div></div>
 </section>
 <section id="stock" class="pane hidden">
-<div class="sheet"><div class="sheethead"><div><h3>Sheet2 · Stock Details</h3><div class="hint">Excel-style stock register · automatic 50/50 split</div></div><div class="actions"><button class="btn primary" id="addStock">＋ Add row</button><button class="btn" id="exportStock">Export CSV</button></div></div>
-<div class="sheetnote">Price and per-person share are calculated automatically. Edit a row and tap Save. Existing stock table is retained.</div>
-<div class="gridwrap"><table><thead><tr><th>S.N.</th><th>Perfume brand</th><th>Purchase date</th><th>Quantity</th><th>Unit</th><th>Remaining unit</th><th>Price per unit NPR</th><th>Extra cost NPR</th><th>Total price NPR</th><th>Per person NPR</th><th>Payment status</th><th>Supplier / Notes</th><th>Actions</th></tr></thead><tbody id="stockRows"></tbody></table></div></div>
+<div class="sheet"><div class="sheethead"><div><h3>Sheet2 · Stock Details</h3></div><div class="actions"><button class="btn primary" id="addStock">＋ Add row</button><button class="btn" id="exportStock">Export CSV</button></div></div>
+<div class="gridwrap"><table><thead><tr><th>S.N.</th><th>Perfume brand</th><th>Purchase date</th><th>Quantity</th><th>Unit</th><th>Remaining units</th><th>Price per unit NPR</th><th>Extra cost NPR</th><th>Total price NPR</th><th>Per-person share NPR</th><th>Payment status</th><th>Supplier / Notes</th><th>Actions</th></tr></thead><tbody id="stockRows"></tbody></table></div></div>
 </section>
-<section id="expenses" class="pane hidden">
-<div class="sheet"><div class="sheethead"><div><h3>Expenses</h3><div class="hint">Shared expenses register</div></div><button class="btn primary" id="addExpense">＋ Add expense</button></div>
-<div class="gridwrap"><table><thead><tr><th>S.N.</th><th>Date</th><th>Category</th><th>Amount NPR</th><th>Paid by</th><th>Status</th><th>Description</th><th>Actions</th></tr></thead><tbody id="expenseRows"></tbody></table></div></div>
 </section>
-<section id="partners" class="pane hidden"><div class="summary"><h3>Partner accounts</h3><div class="summarygrid"><div>Jeewan Badu · 50%<strong id="jeewanTotal2">NPR 0</strong></div><div>Rijan Bhatt · 50%<strong id="rijanTotal2">NPR 0</strong></div></div><p class="hint">Each partner's share is half of recorded stock investment.</p></div></section>
-</section>
-<div class="footer">Premium Fragrance MNR · Jeewan Badu & Rijan Bhatt</div>
 </main>
-<nav id="bottomNav" class="bottomnav hidden"><button data-tab="dashboard" class="active"><span class="ico">⌂</span>Home</button><button data-tab="customers"><span class="ico">▤</span>Customers</button><button data-tab="stock"><span class="ico">▦</span>Stock</button><button data-tab="expenses"><span class="ico">₹</span>Expenses</button><button data-tab="partners"><span class="ico">♙</span>Partners</button></nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* Existing project credentials and table names are retained. Do not replace with a service-role key. */
 const SUPABASE_URL="https://nyaerkkfshtlhgekzywe.supabase.co";
 const SUPABASE_ANON_KEY="sb_publishable_RKcKNfD2Jj-87IM_oBWTvA_ZKVvihmy";
 const $=id=>document.getElementById(id), n=v=>Number(v)||0, today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}, money=v=>'NPR '+n(v).toLocaleString('en-NP',{minimumFractionDigits:2,maximumFractionDigits:2}), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let sb=null,user=null,db={sales:[],stock:[],expenses:[]};
+let sb=null,user=null,db={sales:[],stock:[]};
 const statusOptions=(v)=>`<option ${v==='Paid'?'selected':''}>Paid</option><option ${v==='Pending'?'selected':''}>Pending</option><option ${v==='Part-paid'?'selected':''}>Part-paid</option>`;
 function message(t,ok=false){$('authMessage').className='msg'+(ok?' ok':'');$('authMessage').textContent=t}
-function showTab(name){document.querySelectorAll('.pane').forEach(p=>p.classList.add('hidden'));$(name).classList.remove('hidden');document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));$('pageTitle').textContent=({dashboard:'Dashboard',customers:'Customer Details · Sheet1',stock:'Stock Details · Sheet2',expenses:'Expenses',partners:'Partner accounts'})[name]||'Dashboard'}
-window.showTab=showTab;document.querySelectorAll('.bottomnav [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+function showTab(name){document.querySelectorAll('.pane').forEach(p=>p.classList.add('hidden'));$(name).classList.remove('hidden');document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));$('pageTitle').textContent=name==='customers'?'Customer Details · Sheet1':'Stock Details · Sheet2'}
+document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
 async function auth(mode){if(!sb){message('Login service did not load. Check internet and reload.');return}let email=$('email').value.trim().toLowerCase(),password=$('password').value;if(!email||!password){message('Enter email and password.');return}message('Please wait…',true);try{let r=mode==='signup'?await sb.auth.signUp({email,password}):await sb.auth.signInWithPassword({email,password});if(r.error)throw r.error;if(mode==='signup'&&!r.data.session){message('Account created. Check your email to confirm, then sign in.',true);return}if(r.data.user){user=r.data.user;await enterApp()}}catch(e){message(e.message||'Sign in failed.')}}
 $('loginBtn').onclick=()=>auth('login');$('signupBtn').onclick=()=>auth('signup');
-$('logoutBtn').onclick=async()=>{await sb.auth.signOut();user=null;$('appView').classList.add('hidden');$('bottomNav').classList.add('hidden');$('loginView').classList.remove('hidden')};
-async function enterApp(){$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('bottomNav').classList.remove('hidden');$('signedIn').textContent=user.email;showTab('dashboard');await loadAll()}
+$('logoutBtn').onclick=async()=>{await sb.auth.signOut();user=null;$('appView').classList.add('hidden');$('loginView').classList.remove('hidden')};
+async function enterApp(){$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('signedIn').textContent=user.email;showTab('customers');await loadAll()}
 async function queryTable(t){const {data,error}=await sb.from(t).select('*').order('created_at',{ascending:false});if(error)throw error;return data||[]}
-async function loadAll(){try{const [sales,stock,expenses]=await Promise.all([queryTable('sales'),queryTable('stock'),queryTable('expenses')]);db={sales,stock,expenses};render()}catch(e){alert('Could not load shared records: '+e.message+'\nCheck Supabase setup and partner permissions.')}}
+async function loadAll(){try{const [sales,stock]=await Promise.all([queryTable('sales'),queryTable('stock')]);db={sales,stock};render()}catch(e){alert('Could not load shared records: '+e.message+'\nCheck Supabase setup and partner permissions.')}}
 $('refreshBtn').onclick=loadAll;
 function render(){
-const {sales,stock,expenses}=db;
-$('totalSales').textContent=money(sales.reduce((a,x)=>a+n(x.sold_price),0));
-$('totalProfit').textContent=money(sales.reduce((a,x)=>a+n(x.profit),0)-expenses.reduce((a,x)=>a+n(x.amount),0));
-$('totalUnits').textContent=stock.reduce((a,x)=>a+n(x.available),0);
-$('pendingTotal').textContent=money(stock.filter(x=>x.status==='Pending').reduce((a,x)=>a+n(x.qty)*n(x.unit_cost)+n(x.extra_cost),0)+expenses.filter(x=>x.status==='Pending').reduce((a,x)=>a+n(x.amount),0));
-const total=stock.reduce((a,x)=>a+n(x.qty)*n(x.unit_cost)+n(x.extra_cost),0);
-['jeewanTotal','rijanTotal','jeewanTotal2','rijanTotal2'].forEach(id=>$(id).textContent=money(total/2));
-$('customerRows').innerHTML=sales.map((x,i)=>`<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="customer_name" value="${esc(x.customer_name)}"></td><td><input data-k="phone" value="${esc(x.phone||'')}"></td><td><input data-k="sale_date" type="date" value="${esc(x.sale_date||'')}"></td><td><input data-k="perfume" value="${esc(x.perfume||'')}"></td><td><input class="num" data-k="invested_cost" type="number" step=".01" value="${n(x.invested_cost)}"></td><td><input class="num" data-k="sold_price" type="number" step=".01" value="${n(x.sold_price)}"></td><td><input class="num readonly" readonly value="${money(n(x.sold_price)-n(x.invested_cost))}"></td><td><select data-k="payment_status">${statusOptions(x.payment_status)}</select></td><td><input data-k="notes" value="${esc(x.notes||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('sales','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('sales','${esc(x.id)}')">Delete</button></div></td></tr>`).join('');
+const {sales,stock}=db;
+$('customerRows').innerHTML=sales.map((x,i)=>`<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="customer_name" value="${esc(x.customer_name)}"></td><td><input data-k="phone" value="${esc(x.phone||'')}"></td><td><input data-k="sale_date" type="date" value="${esc(x.sale_date||'')}"></td><td><input data-k="perfume" value="${esc(x.perfume||'')}"></td><td><input class="num" data-k="invested_cost" type="number" step=".01" value="${n(x.invested_cost)}"></td><td><input class="num" data-k="sold_price" type="number" step=".01" value="${n(x.sold_price)}"></td><td><input class="num readonly" readonly value="${(n(x.sold_price)-n(x.invested_cost)).toFixed(2)}"></td><td><select data-k="payment_status">${statusOptions(x.payment_status)}</select></td><td><input data-k="notes" value="${esc(x.notes||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('sales','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('sales','${esc(x.id)}')">Delete</button></div></td></tr>`).join('');
 $('stockRows').innerHTML=stock.map((x,i)=>{const total=n(x.qty)*n(x.unit_cost)+n(x.extra_cost);return `<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="perfume_name" value="${esc(x.perfume_name)}"></td><td><input data-k="purchase_date" type="date" value="${esc(x.purchase_date||'')}"></td><td><input class="num" data-k="qty" type="number" min="1" value="${n(x.qty)}"></td><td><input value="unit" disabled class="readonly"></td><td><input class="num" data-k="available" type="number" min="0" value="${n(x.available)}"></td><td><input class="num" data-k="unit_cost" type="number" step=".01" value="${n(x.unit_cost)}"></td><td><input class="num" data-k="extra_cost" type="number" step=".01" value="${n(x.extra_cost)}"></td><td><input class="num readonly" readonly value="${total.toFixed(2)}"></td><td><input class="num readonly" readonly value="${(total/2).toFixed(2)}"></td><td><select data-k="status">${statusOptions(x.status)}</select></td><td><input data-k="supplier" value="${esc(x.supplier||x.notes||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('stock','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('stock','${esc(x.id)}')">Delete</button></div></td></tr>`}).join('');
-$('expenseRows').innerHTML=expenses.map((x,i)=>`<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="expense_date" type="date" value="${esc(x.expense_date||'')}"></td><td><input data-k="category" value="${esc(x.category)}"></td><td><input data-k="amount" type="number" step=".01" value="${n(x.amount)}"></td><td><input data-k="paid_by" value="${esc(x.paid_by)}"></td><td><select data-k="status">${statusOptions(x.status)}</select></td><td><input data-k="description" value="${esc(x.description||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('expenses','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('expenses','${esc(x.id)}')">Delete</button></div></td></tr>`).join('');
 }
 function readRow(tr){const out={};tr.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k;out[k]=el.type==='number'?n(el.value):el.value});return out}
-async function saveRow(type,id,button){const tr=button.closest('tr'),row=readRow(tr);if(type==='sales')row.profit=n(row.sold_price)-n(row.invested_cost);if(type==='stock'&&n(row.available)>n(row.qty)){alert('Remaining units cannot exceed quantity.');return}if(type==='stock')row.notes='';const {error}=await sb.from(type).update(row).eq('id',id);if(error){alert('Save failed: '+error.message);return}await loadAll()}
+async function saveRow(type,id,button){const tr=button.closest('tr'),row=readRow(tr);if(type==='sales')delete row.profit;if(type==='stock'&&n(row.available)>n(row.qty)){alert('Remaining units cannot exceed quantity.');return}if(type==='stock')row.notes='';const {error}=await sb.from(type).update(row).eq('id',id);if(error){alert('Save failed: '+error.message);return}await loadAll()}
 window.saveRow=saveRow;
 async function deleteRow(type,id){if(!confirm('Delete this shared record for both partners?'))return;const {error}=await sb.from(type).delete().eq('id',id);if(error)alert(error.message);else await loadAll()}
 window.deleteRow=deleteRow;
-async function addRow(type,row){const {error}=await sb.from(type).insert({...row,created_by:user.id});if(error){alert('Could not add row: '+error.message);return}await loadAll()}
-$('addCustomer').onclick=()=>addRow('sales',{customer_name:'',phone:'',sale_date:today(),perfume:'',invested_cost:0,sold_price:0,profit:0,payment_status:'Pending',notes:''});
+async function addRow(type,row){if(type==='sales')delete row.profit;const {error}=await sb.from(type).insert({...row,created_by:user.id});if(error){alert('Could not add row: '+error.message);return}await loadAll()}
+$('addCustomer').onclick=()=>addRow('sales',{customer_name:'',phone:'',sale_date:today(),perfume:'',invested_cost:0,sold_price:0,payment_status:'Pending',notes:''});
 $('addStock').onclick=()=>addRow('stock',{perfume_name:'',purchase_date:today(),qty:1,available:1,unit_cost:0,extra_cost:0,supplier:'',status:'Pending',notes:''});
-$('addExpense').onclick=()=>addRow('expenses',{expense_date:today(),category:'Other',amount:0,paid_by:'Jeewan Badu',status:'Pending',description:''});
-function csv(type){const rows=db[type],keys=type==='sales'?['customer_name','phone','sale_date','perfume','invested_cost','sold_price','profit','payment_status','notes']:type==='stock'?['perfume_name','purchase_date','qty','available','unit_cost','extra_cost','status','supplier','notes']:['expense_date','category','amount','paid_by','status','description'];const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const text=[keys.map(quote).join(','),...rows.map(r=>keys.map(k=>quote(r[k])).join(','))].join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='Premium-Fragrance-MNR-'+type+'.csv';a.click();URL.revokeObjectURL(url)}
+function csv(type){const rows=db[type],keys=type==='sales'?['customer_name','phone','sale_date','perfume','invested_cost','sold_price','profit','payment_status','notes']:['perfume_name','purchase_date','qty','available','unit_cost','extra_cost','status','supplier','notes'];const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const text=[keys.map(quote).join(','),...rows.map(r=>keys.map(k=>quote(r[k])).join(','))].join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='Premium-Fragrance-MNR-'+type+'.csv';a.click();URL.revokeObjectURL(url)}
 $('exportCustomers').onclick=()=>csv('sales');$('exportStock').onclick=()=>csv('stock');
 if(window.supabase){sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);sb.auth.onAuthStateChange((event,session)=>{if(session?.user&&!user){user=session.user;enterApp()}else if(event==='SIGNED_OUT'){user=null}})}else message('Supabase library did not load. Check your internet connection.');
 </script>
