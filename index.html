@@ -20,27 +20,25 @@ input,select{background:#111315;color:var(--ink);border:1px solid var(--line);bo
 .btn{border:1px solid var(--line);background:var(--panel2);color:var(--ink);padding:9px 12px;border-radius:8px;font-weight:650}
 .btn.primary{background:#f1f2f3;color:#111315;border-color:#f1f2f3}.btn.danger{color:#ff9999}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}.stat{background:var(--panel);border:1px solid var(--line);padding:13px;border-radius:12px}.stat span{font-size:11px;color:var(--muted)}.stat strong{display:block;font-size:18px;margin-top:6px}
 .tabs{display:flex;gap:7px;overflow:auto;padding:4px 0 12px}.tab{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:10px 13px;border-radius:9px}.tab.active{background:#f1f2f3;color:#111315;border-color:#f1f2f3}
-.sheet{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;margin:10px 0}.sheethead{padding:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.sheethead h3{margin:0;font-size:16px}.sheetnote{padding:0 13px 12px;color:var(--muted);font-size:11px}
+.sheet{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;margin:10px 0}.sheethead{padding:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.sheethead h3{margin:0;font-size:16px}
 .gridwrap{overflow:auto;max-height:68vh;border-top:1px solid var(--line)}table{border-collapse:separate;border-spacing:0;min-width:100%;width:max-content;font-size:12px}th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:0;white-space:nowrap}th{position:sticky;top:0;background:#292e32;color:#e9ecef;text-align:left;padding:10px 9px;z-index:2;font-size:11px}td input,td select{border:0;border-radius:0;background:transparent;padding:10px 8px;min-width:105px;height:38px}td input:focus,td select:focus{outline:2px solid #9ca3aa;outline-offset:-2px;background:#2b3034}td .num{min-width:72px;text-align:right}td .readonly{color:#bfc5ca;background:#202428}.sn{min-width:42px;text-align:center;padding:9px;color:var(--muted)}.rowactions{display:flex;gap:5px;padding:5px}.rowactions button{padding:6px 8px;font-size:11px}
-.pane.hidden,.hidden{display:none!important}.status{min-width:110px}.summary{padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-top:12px}.summarygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.summary strong{display:block;font-size:19px;margin-top:4px}
-.msg{font-size:12px;margin-top:10px;color:var(--red);white-space:pre-wrap}.ok{color:var(--green)}.bottomnav{position:fixed;bottom:0;left:0;right:0;background:#191c1f;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 2px calc(8px + env(safe-area-inset-bottom));z-index:10}.bottomnav button{border:0;background:transparent;color:var(--muted);font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px}.bottomnav button.active{color:white}.ico{font-size:19px}.footer{text-align:center;color:var(--muted);font-size:10px;padding:20px}
-@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}main{padding:12px 8px 90px}.sheethead{align-items:flex-start}.brand h1{font-size:16px}.gridwrap{max-height:65vh}}
+.pane.hidden,.hidden{display:none!important}.msg{font-size:12px;margin-top:10px;color:var(--red);white-space:pre-wrap}.ok{color:var(--green)}.bottomnav{position:fixed;bottom:0;left:0;right:0;background:#191c1f;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 2px calc(8px + env(safe-area-inset-bottom));z-index:10}.bottomnav button{border:0;background:transparent;color:var(--muted);font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px}.bottomnav button.active{color:white}.ico{font-size:19px}
+@media(max-width:650px){main{padding:12px 8px 90px}.sheethead{align-items:flex-start}.brand h1{font-size:16px}.gridwrap{max-height:65vh}}
 </style>
 </head>
 <body>
-<header><div class="brand"><div class="mark">PF</div><div><h1>Premium Fragrance MNR</h1><p>Mahendranagar · Kanchanpur</p></div></div></header>
+<header><div class="brand"><div class="mark">PF</div><div><h1>Premium Fragrance MNR</h1><p>Mahendranagar · Kanchanpur · Shared partner records</p></div></div></header>
 <main>
 <section id="loginView" class="login">
-<h2>Sign in</h2><p class="muted">Jeewan Badu & Rijan Bhatt · Shared workspace</p>
-<div class="field"><label>Email address</label><input id="email" type="email" autocomplete="username" placeholder="Partner email"></div>
-<div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Password"></div>
-<div class="actions"><button class="btn primary" id="loginBtn">Sign in</button><button class="btn" id="signupBtn">Create account</button></div><div id="authMessage" class="msg"></div>
+<h2>Sign in</h2><p class="muted">Jeewan Badu &amp; Rijan Bhatt · Shared workspace</p>
+<div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" placeholder="Partner email"></div>
+<div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Password"></div>
+<div class="actions"><button class="btn primary" id="loginBtn">Sign in</button><button class="btn" id="signupBtn">Create account</button></div><div id="authMessage" class="msg" role="status"></div>
 </section>
 <section id="appView" class="hidden">
 <div class="toprow">
-  <div><h2 id="pageTitle">Customer Details · Sheet1</h2><div class="muted">Customer and stock records</div></div>
+  <div><h2 id="pageTitle">Customer Details · Sheet1</h2><div class="muted">Changes are saved to the shared cloud database</div></div>
   <div class="actions"><span id="signedIn" class="muted"></span><button class="btn" id="refreshBtn">↻ Refresh</button><button class="btn" id="logoutBtn">Sign out</button></div>
 </div>
 <div class="tabs">
@@ -59,37 +57,234 @@ input,select{background:#111315;color:var(--ink);border:1px solid var(--line);bo
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-/* Existing project credentials and table names are retained. Do not replace with a service-role key. */
+/* Keep the project URL and publishable/anon key here. Never put a service-role key in browser code. */
 const SUPABASE_URL="https://nyaerkkfshtlhgekzywe.supabase.co";
 const SUPABASE_ANON_KEY="sb_publishable_RKcKNfD2Jj-87IM_oBWTvA_ZKVvihmy";
-const $=id=>document.getElementById(id), n=v=>Number(v)||0, today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}, money=v=>'NPR '+n(v).toLocaleString('en-NP',{minimumFractionDigits:2,maximumFractionDigits:2}), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=id=>document.getElementById(id);
+const n=v=>Number(v)||0;
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let sb=null,user=null,db={sales:[],stock:[]};
-const statusOptions=(v)=>`<option ${v==='Paid'?'selected':''}>Paid</option><option ${v==='Pending'?'selected':''}>Pending</option><option ${v==='Part-paid'?'selected':''}>Part-paid</option>`;
+const statusOptions=v=>`<option ${v==='Paid'?'selected':''}>Paid</option><option ${v==='Pending'?'selected':''}>Pending</option><option ${v==='Part-paid'?'selected':''}>Part-paid</option>`;
 function message(t,ok=false){$('authMessage').className='msg'+(ok?' ok':'');$('authMessage').textContent=t}
-function showTab(name){document.querySelectorAll('.pane').forEach(p=>p.classList.add('hidden'));$(name).classList.remove('hidden');document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));$('pageTitle').textContent=name==='customers'?'Customer Details · Sheet1':'Stock Details · Sheet2'}
-document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
-async function auth(mode){if(!sb){message('Login service did not load. Check internet and reload.');return}let email=$('email').value.trim().toLowerCase(),password=$('password').value;if(!email||!password){message('Enter email and password.');return}message('Please wait…',true);try{let r=mode==='signup'?await sb.auth.signUp({email,password}):await sb.auth.signInWithPassword({email,password});if(r.error)throw r.error;if(mode==='signup'&&!r.data.session){message('Account created. Check your email to confirm, then sign in.',true);return}if(r.data.user){user=r.data.user;await enterApp()}}catch(e){message(e.message||'Sign in failed.')}}
-$('loginBtn').onclick=()=>auth('login');$('signupBtn').onclick=()=>auth('signup');
-$('logoutBtn').onclick=async()=>{await sb.auth.signOut();user=null;$('appView').classList.add('hidden');$('loginView').classList.remove('hidden')};
-async function enterApp(){$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('signedIn').textContent=user.email;showTab('customers');await loadAll()}
-async function queryTable(t){const {data,error}=await sb.from(t).select('*').order('created_at',{ascending:false});if(error)throw error;return data||[]}
-async function loadAll(){try{const [sales,stock]=await Promise.all([queryTable('sales'),queryTable('stock')]);db={sales,stock};render()}catch(e){alert('Could not load shared records: '+e.message+'\nCheck Supabase setup and partner permissions.')}}
-$('refreshBtn').onclick=loadAll;
-function render(){
-const {sales,stock}=db;
-$('customerRows').innerHTML=sales.map((x,i)=>`<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="customer_name" value="${esc(x.customer_name)}"></td><td><input data-k="phone" value="${esc(x.phone||'')}"></td><td><input data-k="sale_date" type="date" value="${esc(x.sale_date||'')}"></td><td><input data-k="perfume" value="${esc(x.perfume||'')}"></td><td><input class="num" data-k="invested_cost" type="number" step=".01" value="${n(x.invested_cost)}"></td><td><input class="num" data-k="sold_price" type="number" step=".01" value="${n(x.sold_price)}"></td><td><input class="num readonly" readonly value="${(n(x.sold_price)-n(x.invested_cost)).toFixed(2)}"></td><td><select data-k="payment_status">${statusOptions(x.payment_status)}</select></td><td><input data-k="notes" value="${esc(x.notes||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('sales','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('sales','${esc(x.id)}')">Delete</button></div></td></tr>`).join('');
-$('stockRows').innerHTML=stock.map((x,i)=>{const total=n(x.qty)*n(x.unit_cost)+n(x.extra_cost);return `<tr data-id="${esc(x.id)}"><td class="sn">${i+1}</td><td><input data-k="perfume_name" value="${esc(x.perfume_name)}"></td><td><input data-k="purchase_date" type="date" value="${esc(x.purchase_date||'')}"></td><td><input class="num" data-k="qty" type="number" min="1" value="${n(x.qty)}"></td><td><input value="unit" disabled class="readonly"></td><td><input class="num" data-k="available" type="number" min="0" value="${n(x.available)}"></td><td><input class="num" data-k="unit_cost" type="number" step=".01" value="${n(x.unit_cost)}"></td><td><input class="num" data-k="extra_cost" type="number" step=".01" value="${n(x.extra_cost)}"></td><td><input class="num readonly" readonly value="${total.toFixed(2)}"></td><td><input class="num readonly" readonly value="${(total/2).toFixed(2)}"></td><td><select data-k="status">${statusOptions(x.status)}</select></td><td><input data-k="supplier" value="${esc(x.supplier||x.notes||'')}"></td><td><div class="rowactions"><button class="btn primary" onclick="saveRow('stock','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('stock','${esc(x.id)}')">Delete</button></div></td></tr>`}).join('');
+function showTab(name){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.add('hidden'));
+  $(name).classList.remove('hidden');
+  document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
+  $('pageTitle').textContent=name==='customers'?'Customer Details · Sheet1':'Stock Details · Sheet2';
 }
-function readRow(tr){const out={};tr.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k;out[k]=el.type==='number'?n(el.value):el.value});return out}
-async function saveRow(type,id,button){const tr=button.closest('tr'),row=readRow(tr);if(type==='sales')delete row.profit;if(type==='stock'&&n(row.available)>n(row.qty)){alert('Remaining units cannot exceed quantity.');return}if(type==='stock')row.notes='';const {error}=await sb.from(type).update(row).eq('id',id);if(error){alert('Save failed: '+error.message);return}await loadAll()}
+document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+
+async function auth(mode){
+  if(!sb){message('Login service did not load. Check internet and reload.');return}
+  const email=$('email').value.trim().toLowerCase(),password=$('password').value;
+  if(!email||!password){message('Enter email and password.');return}
+  message('Please wait…',true);
+  try{
+    const r=mode==='signup'
+      ?await sb.auth.signUp({email,password})
+      :await sb.auth.signInWithPassword({email,password});
+    if(r.error)throw r.error;
+    if(mode==='signup'&&!r.data.session){
+      message('Account created. Check your email to confirm, then sign in.',true);
+      return;
+    }
+    if(r.data.user){user=r.data.user;await enterApp()}
+  }catch(e){message(e.message||'Sign in failed.')}
+}
+$('loginBtn').onclick=()=>auth('login');
+$('signupBtn').onclick=()=>auth('signup');
+
+$('logoutBtn').onclick=async()=>{
+  if(!sb)return;
+  const {error}=await sb.auth.signOut();
+  if(error){alert('Sign out failed: '+error.message);return}
+  user=null;
+  $('appView').classList.add('hidden');
+  $('loginView').classList.remove('hidden');
+};
+async function enterApp(){
+  $('loginView').classList.add('hidden');
+  $('appView').classList.remove('hidden');
+  $('signedIn').textContent=user?.email||'';
+  showTab('customers');
+  await loadAll();
+}
+async function queryTable(t){
+  const {data,error}=await sb.from(t).select('*').order('created_at',{ascending:false});
+  if(error)throw error;
+  return data||[];
+}
+async function loadAll(){
+  try{
+    const [sales,stock]=await Promise.all([queryTable('sales'),queryTable('stock')]);
+    db={sales,stock};
+    render();
+  }catch(e){
+    alert('Could not load shared records: '+e.message+'\nCheck Supabase table names, columns and partner permissions.');
+  }
+}
+$('refreshBtn').onclick=loadAll;
+
+function render(){
+  const {sales,stock}=db;
+  $('customerRows').innerHTML=sales.map((x,i)=>`<tr data-id="${esc(x.id)}">
+    <td class="sn">${i+1}</td>
+    <td><input data-k="customer_name" value="${esc(x.customer_name)}"></td>
+    <td><input data-k="phone" value="${esc(x.phone||'')}"></td>
+    <td><input data-k="sale_date" type="date" value="${esc(x.sale_date||'')}"></td>
+    <td><input data-k="perfume" value="${esc(x.perfume||'')}"></td>
+    <td><input class="num" data-k="invested_cost" type="number" step=".01" value="${n(x.invested_cost)}"></td>
+    <td><input class="num" data-k="sold_price" type="number" step=".01" value="${n(x.sold_price)}"></td>
+    <td><input class="num readonly" readonly value="${(n(x.sold_price)-n(x.invested_cost)).toFixed(2)}"></td>
+    <td><select data-k="payment_status">${statusOptions(x.payment_status)}</select></td>
+    <td><input data-k="notes" value="${esc(x.notes||'')}"></td>
+    <td><div class="rowactions"><button class="btn primary" onclick="saveRow('sales','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('sales','${esc(x.id)}')">Delete</button></div></td>
+  </tr>`).join('');
+
+  $('stockRows').innerHTML=stock.map((x,i)=>{
+    const total=n(x.qty)*n(x.unit_cost)+n(x.extra_cost);
+    return `<tr data-id="${esc(x.id)}">
+      <td class="sn">${i+1}</td>
+      <td><input data-k="perfume_name" value="${esc(x.perfume_name)}"></td>
+      <td><input data-k="purchase_date" type="date" value="${esc(x.purchase_date||'')}"></td>
+      <td><input class="num" data-k="qty" type="number" min="1" value="${n(x.qty)}"></td>
+      <td><input value="unit" disabled class="readonly"></td>
+      <td><input class="num" data-k="available" type="number" min="0" value="${n(x.available)}"></td>
+      <td><input class="num" data-k="unit_cost" type="number" step=".01" value="${n(x.unit_cost)}"></td>
+      <td><input class="num" data-k="extra_cost" type="number" step=".01" value="${n(x.extra_cost)}"></td>
+      <td><input class="num readonly" readonly value="${total.toFixed(2)}"></td>
+      <td><input class="num readonly" readonly value="${(total/2).toFixed(2)}"></td>
+      <td><select data-k="status">${statusOptions(x.status)}</select></td>
+      <td><input data-k="supplier" value="${esc(x.supplier||x.notes||'')}"></td>
+      <td><div class="rowactions"><button class="btn primary" onclick="saveRow('stock','${esc(x.id)}',this)">Save</button><button class="btn danger" onclick="deleteRow('stock','${esc(x.id)}')">Delete</button></div></td>
+    </tr>`;
+  }).join('');
+}
+function readRow(tr){
+  const out={};
+  tr.querySelectorAll('[data-k]').forEach(el=>{
+    const k=el.dataset.k;
+    out[k]=el.type==='number'?n(el.value):el.value;
+  });
+  return out;
+}
+async function saveRow(type,id,button){
+  const tr=button.closest('tr'),row=readRow(tr);
+  if(type==='sales'){
+    // Profit is database-generated; never send it in an UPDATE request.
+    delete row.profit;
+  }
+  if(type==='stock'&&n(row.available)>n(row.qty)){
+    alert('Remaining units cannot exceed quantity.');
+    return;
+  }
+  if(type==='stock')row.notes='';
+  const {error}=await sb.from(type).update(row).eq('id',id);
+  if(error){alert('Save failed: '+error.message);return}
+  await loadAll();
+}
 window.saveRow=saveRow;
-async function deleteRow(type,id){if(!confirm('Delete this shared record for both partners?'))return;const {error}=await sb.from(type).delete().eq('id',id);if(error)alert(error.message);else await loadAll()}
+
+async function deleteRow(type,id){
+  if(!confirm('Delete this shared record for both partners?'))return;
+  const {error}=await sb.from(type).delete().eq('id',id);
+  if(error)alert('Delete failed: '+error.message);
+  else await loadAll();
+}
 window.deleteRow=deleteRow;
-async function addRow(type,row){if(type==='sales')delete row.profit;const {error}=await sb.from(type).insert({...row,created_by:user.id});if(error){alert('Could not add row: '+error.message);return}await loadAll()}
-$('addCustomer').onclick=()=>addRow('sales',{customer_name:'',phone:'',sale_date:today(),perfume:'',invested_cost:0,sold_price:0,payment_status:'Pending',notes:''});
-$('addStock').onclick=()=>addRow('stock',{perfume_name:'',purchase_date:today(),qty:1,available:1,unit_cost:0,extra_cost:0,supplier:'',status:'Pending',notes:''});
-function csv(type){const rows=db[type],keys=type==='sales'?['customer_name','phone','sale_date','perfume','invested_cost','sold_price','profit','payment_status','notes']:['perfume_name','purchase_date','qty','available','unit_cost','extra_cost','status','supplier','notes'];const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const text=[keys.map(quote).join(','),...rows.map(r=>keys.map(k=>quote(r[k])).join(','))].join('\r\n');const a=document.createElement('a'),url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='Premium-Fragrance-MNR-'+type+'.csv';a.click();URL.revokeObjectURL(url)}
-$('exportCustomers').onclick=()=>csv('sales');$('exportStock').onclick=()=>csv('stock');
-if(window.supabase){sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);sb.auth.onAuthStateChange((event,session)=>{if(session?.user&&!user){user=session.user;enterApp()}else if(event==='SIGNED_OUT'){user=null}})}else message('Supabase library did not load. Check your internet connection.');
+
+/*
+ * IMPORTANT FIX:
+ * The sales.profit column is generated by PostgreSQL.
+ * Build an explicit insert object that does NOT contain profit.
+ * Do not spread the incoming row into the database request.
+ */
+async function addRow(type,row){
+  if(!sb||!user){alert('Please sign in again before adding a row.');return}
+  let payload;
+
+  if(type==='sales'){
+    payload={
+      customer_name:row.customer_name,
+      phone:row.phone,
+      sale_date:row.sale_date,
+      perfume:row.perfume,
+      invested_cost:row.invested_cost,
+      sold_price:row.sold_price,
+      payment_status:row.payment_status,
+      notes:row.notes,
+      created_by:user.id
+    };
+  }else if(type==='stock'){
+    payload={
+      perfume_name:row.perfume_name,
+      purchase_date:row.purchase_date,
+      qty:row.qty,
+      available:row.available,
+      unit_cost:row.unit_cost,
+      extra_cost:row.extra_cost,
+      supplier:row.supplier,
+      status:row.status,
+      notes:row.notes,
+      created_by:user.id
+    };
+  }else{
+    alert('Unknown record type.');
+    return;
+  }
+
+  const {error}=await sb.from(type).insert(payload);
+  if(error){
+    alert('Could not add row: '+error.message);
+    return;
+  }
+  await loadAll();
+}
+$('addCustomer').onclick=()=>addRow('sales',{
+  customer_name:'',phone:'',sale_date:today(),perfume:'',
+  invested_cost:0,sold_price:0,payment_status:'Pending',notes:''
+});
+$('addStock').onclick=()=>addRow('stock',{
+  perfume_name:'',purchase_date:today(),qty:1,available:1,
+  unit_cost:0,extra_cost:0,supplier:'',status:'Pending',notes:''
+});
+
+function csv(type){
+  const rows=db[type];
+  const keys=type==='sales'
+    ?['customer_name','phone','sale_date','perfume','invested_cost','sold_price','profit','payment_status','notes']
+    :['perfume_name','purchase_date','qty','available','unit_cost','extra_cost','status','supplier','notes'];
+  const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const text=[keys.map(quote).join(','),...rows.map(r=>keys.map(k=>{
+    if(type==='sales'&&k==='profit')return quote(n(r.sold_price)-n(r.invested_cost));
+    return quote(r[k]);
+  }).join(','))].join('\r\n');
+  const a=document.createElement('a');
+  const url=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv;charset=utf-8'}));
+  a.href=url;
+  a.download='Premium-Fragrance-MNR-'+type+'.csv';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$('exportCustomers').onclick=()=>csv('sales');
+$('exportStock').onclick=()=>csv('stock');
+
+if(window.supabase){
+  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+  sb.auth.onAuthStateChange((event,session)=>{
+    if(session?.user&&!user){
+      user=session.user;
+      enterApp();
+    }else if(event==='SIGNED_OUT'){
+      user=null;
+      $('appView').classList.add('hidden');
+      $('loginView').classList.remove('hidden');
+    }
+  });
+}else{
+  message('Supabase library did not load. Check your internet connection.');
+}
 </script>
-</body></html>
+</body>
+</html>
